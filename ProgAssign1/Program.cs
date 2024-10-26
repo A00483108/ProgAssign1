@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 
 
@@ -19,7 +19,7 @@ ConfigureLogging();
 
 long CountValidRows = 0;
 long CountSkippedRows = 0;
-DirWalker.walk(@"C:\Users\amit.dey\source\repos\ProgAssign1\ProgAssign1\Sample Data\Sample Data\",ref CountValidRows, ref CountSkippedRows);
+DirWalker.walk(@"C:\Users\amit.dey\source\repos\NewRepo2\ProgAssign1\Sample Data\Sample Data\", ref CountValidRows, ref CountSkippedRows);
 
 
 log.Info("Total number of valid rows: " + CountValidRows);
@@ -28,7 +28,7 @@ log.Info("Total number of skipped rows: " + CountSkippedRows);
 
 stopwatch.Stop();
 TimeSpan ts = stopwatch.Elapsed;
-log.Info($"Total execution time: {ts.TotalSeconds} s");
+log.Info($"Total execution time: {ts.Minutes} Minutes");
 
 
 
@@ -37,7 +37,7 @@ static void ConfigureLogging()
     // Create a RollingFileAppender
     RollingFileAppender roller = new RollingFileAppender();
     roller.AppendToFile = true;
-    roller.File = @"C:\Users\amit.dey\source\repos\ProgAssign1\ProgAssign1\logs\app.log"; // Set your log file path here
+    roller.File = @"C:\Users\amit.dey\source\repos\NewRepo2\ProgAssign1\logs\app.log"; // Set your log file path here
     roller.MaxSizeRollBackups = 5;
     roller.MaximumFileSize = "10MB";
     roller.RollingStyle = RollingFileAppender.RollingMode.Size;
