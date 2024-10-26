@@ -1,4 +1,4 @@
-﻿using CsvHelper.Configuration;
+using CsvHelper.Configuration;
 using CsvHelper;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace ProgAssign1
             string[] reqestedHeaderList = new string[] {"First Name", "Last Name", "Street Number", "Street", "City",
 "Province", "Country", "Postal Code", "Phone Number", "email Address" };
             var records = new List<Dictionary<string, string>>();
-            string outputFilePath = @"C:\Users\amit.dey\source\repos\ProgAssign1\ProgAssign1\Output\output.csv";
+            string outputFilePath = @"C:\Users\amit.dey\source\repos\NewRepo2\ProgAssign1\Output\output.csv";
             bool isRowIngnored = false;
             try
             {
@@ -53,13 +53,16 @@ namespace ProgAssign1
                                 if (string.IsNullOrEmpty(record[header]))
                                 {
                                     isRowIngnored = true;
-                                    CountSkippedRows++;
+                                    //CountSkippedRows++;
                                     log.Info("Incomplete record! Missing field: " + header);
                                     break;
                                 }
                                 else
                                 {
-                                    record[header] = record[header].Replace("\"", "\"\"");
+                                    if (record[header].Contains(','))
+                                    {
+                                        record[header] = $"\"{record[header]}\"";
+                                    }
                                 }
                             }
                             record["date"] = directory_date;
